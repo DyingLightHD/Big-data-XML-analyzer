@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div class="container">
+    <h2>Product List</h2>
+    <table class="table table-stripped">
+        <tr>
+            <th>Id</th>
+            <th>Content</th>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.content}"></td>
+        </tr>
+    </table>
+    <a href="/product"> Back to get more products</a>
+</div>
+</body>
+</html>

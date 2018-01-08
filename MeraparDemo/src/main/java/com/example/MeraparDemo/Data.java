@@ -1,23 +1,23 @@
 package com.example.MeraparDemo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Data {
 
     private ArrayList<Integer> scoreList = new ArrayList<>();
+    private ArrayList<Integer> answerList = new ArrayList<>();
 
     private String URL;
     private Character firstCharOfString;
 
     //Merapar Meta Data
     private String analyseDate;
-    private String firstPost;
-    private String lastPost;
 
     private int totalPosts;
-    private int totalAcceptedPosts;
+    private int totalAnswerCount;
+    private int avgAnswerCount;
     private int avgScore;
-
 
     public String getURL() {
         return URL;
@@ -48,11 +48,37 @@ public class Data {
         this.avgScore = avgScore;
     }
 
+    public String getAnalyseDate() {
+        return analyseDate;
+    }
+    public void setAnalyseDate(String analyseDate) {
+        this.analyseDate = analyseDate;
+    }
+
+    public int getTotalAnswerCount() {
+        return totalAnswerCount;
+    }
+    public void setTotalAnswerCount() {
+        this.totalAnswerCount = answerList.size();
+    }
+
+    public int getAvgAnswerCount() {
+        return avgAnswerCount;
+    }
+    public void setAvgAnswerCount(int avgAnswerCount) {
+        this.avgAnswerCount = avgAnswerCount;
+    }
+
+
     public void AddScore(Integer s){
         scoreList.add(s);
     }
+    public void AddAnswer(Integer a){
+        answerList.add(a);
+    }
 
     public void GetAverageScore(){
+
         int total = 0;
 
         for(Integer i : scoreList){
@@ -60,5 +86,15 @@ public class Data {
         }
 
         avgScore = total / scoreList.size();
+    }
+    public void GetAverageAnswer(){
+
+        int total = 0;
+
+        for(Integer i : answerList){
+            total += i;
+        }
+
+        avgAnswerCount = total / answerList.size();
     }
 }

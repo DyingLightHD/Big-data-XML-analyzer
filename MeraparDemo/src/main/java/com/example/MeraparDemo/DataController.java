@@ -5,16 +5,10 @@ import org.springframework.stereotype.Component;
 import java.net.URL;
 import java.net.URLConnection;
 
-import javax.swing.text.Document;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.ListIterator;
 
 @Component
 public class DataController {
@@ -59,9 +53,13 @@ public class DataController {
             if (getNextValue)
                 switch (getNextValueString) {
                     case "Score":
-                        int x = Integer.parseInt(words[i]);
-                        //System.out.println(x);
-                        data.AddScore(x);
+                        int s = Integer.parseInt(words[i]);
+                        data.AddScore(s);
+                        getNextValue = false;
+                        break;
+                    case "AnswerCount":
+                        int a = Integer.parseInt(words[i]);
+                        data.AddAnswer(a);
                         getNextValue = false;
                         break;
                 }
@@ -74,10 +72,17 @@ public class DataController {
                     getNextValue = true;
                     getNextValueString = "Score";
                     break;
+                case "AnswerCount":
+                    getNextValue = true;
+                    getNextValueString = "AnswerCount";
+                    break;
             }
         }
 
         data.GetAverageScore();
+        data.GetAverageAnswer();
+        data.setTotalAnswerCount();
+
         System.out.println(String.valueOf(data.getTotalPosts()));
         data.setFirstCharOfString(data.getURL().charAt(0));
     }

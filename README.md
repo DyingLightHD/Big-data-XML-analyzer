@@ -1,2 +1,2 @@
 # XmlAnalyzer
-Analyse Big XML files
+Analyse > 1GB XML files.

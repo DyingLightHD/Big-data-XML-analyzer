@@ -9,7 +9,6 @@ public class Data {
     private ArrayList<Integer> answerList = new ArrayList<>();
 
     private String URL;
-    private Character firstCharOfString;
 
     //Merapar Meta Data
     private String analyseDate;
@@ -24,14 +23,6 @@ public class Data {
     }
     public void setURL(String URL) {
         this.URL = URL;
-    }
-
-    public Character getFirstCharOfString() {
-        return firstCharOfString;
-    }
-
-    public void setFirstCharOfString(Character firstCharOfString) {
-        this.firstCharOfString = firstCharOfString;
     }
 
     public void setTotalPosts(int totalPosts) {
@@ -68,7 +59,6 @@ public class Data {
     public void setAvgAnswerCount(int avgAnswerCount) {
         this.avgAnswerCount = avgAnswerCount;
     }
-
 
     public void AddScore(Integer s){
         scoreList.add(s);

@@ -82,8 +82,5 @@ public class DataController {
         data.GetAverageScore();
         data.GetAverageAnswer();
         data.setTotalAnswerCount();
-
-        System.out.println(String.valueOf(data.getTotalPosts()));
-        data.setFirstCharOfString(data.getURL().charAt(0));
     }
 }
